@@ -33,17 +33,20 @@ class Player:
     def updateFound(self, DIE):
         """
         update whether player has found captain/ship/crew
-        :param DIE: list (int)
+        :param DIE: list of Dice()
         :return: None
         """
         # update each separately since captain, ship, and crew don't have to be found in the same roll
+        # debug case before first case? all arleady updated?
         if not self.__CAPTAIN_FOUND and 6 in DIE:
-            self.CAPTAIN_FOUND = True
+            self.__CAPTAIN_FOUND = True
             print("Captain is found!")
-        if self.CAPTAIN_FOUND and not self.__SHIP_FOUND and 5 in DIE:  # captain is already found
+        if self.__CAPTAIN_FOUND and not self.__SHIP_FOUND and 5 in DIE:
+            # captain is already found
             self.__SHIP_FOUND = True
             print("Ship is found!")
-        if self.CAPTAIN_FOUND and self.__SHIP_FOUND and not self.__CREW_FOUND and 4 in DIE:  # captain & ship already found
+        if self.__CAPTAIN_FOUND and self.__SHIP_FOUND and not self.__CREW_FOUND and 4 in DIE:
+            # captain & ship already found
             self.__CREW_FOUND = True
             print("Crew is found!")
 
@@ -57,6 +60,15 @@ class Player:
     def getScore(self):
         return self.__SCORE
 
+    def getCaptainFound(self):
+        return self.__CAPTAIN_FOUND
+
+    def getShipFound(self):
+        return self.__SHIP_FOUND
+
+    def getCrewFound(self):
+        return self.__CREW_FOUND
+
     def displayDice(self):
         """
         prints the dice values
@@ -64,14 +76,4 @@ class Player:
         """
         for i in range(len(self.__DICE)):
             print(f" Dice {i+1} rolled a {self.__DICE[i].getDieNumber()}")
-
-
-if __name__ == "__main__":
-    # --- input --- #
-    PLAYER1_NAME = input("Player 1 Name: ")
-    PLAYER2_NAME = input("Player 2 Name: ")
-
-    # --- processing --- #
-    PLAYER1 = Player(PLAYER1_NAME)
-    PLAYER2 = Player(PLAYER2_NAME)
 

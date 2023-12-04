@@ -15,8 +15,8 @@ class Dice:
         construct a die
         :param SIDES: int
         """
-        self.DIE_MAX = SIDES
-        self.DIE_NUMBER = 0
+        self.__DIE_MAX = SIDES
+        self.__DIE_NUMBER = 0
 
     # --- Modifier Methods
     def rolLDie(self):
@@ -24,7 +24,7 @@ class Dice:
         updating DIE_NUMBER with a new number
         :return: None
         """
-        self.DIE_NUMBER = randint(1, self.DIE_MAX)
+        self.__DIE_NUMBER = randint(1, self.__DIE_MAX)
 
     # --- Accessor Methods
     def getDieNumber(self):
@@ -32,4 +32,4 @@ class Dice:
         send DIE_NUMBER to rest of program
         :return: int
         """
-        return self.DIE_NUMBER
+        return self.__DIE_NUMBER
