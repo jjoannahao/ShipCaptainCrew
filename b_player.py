@@ -51,7 +51,13 @@ class Player:
             print("Crew is found!")
 
     # --- Accessor Methods
-    def __str__(self):
+    def __str__(self):  # for printing
+        return f"{self.__NAME}"
+
+    def __repr__(self):  # for printing dice
+        return f"<-- {self.__DICE} -->"
+
+    def getName(self):
         return self.__NAME
 
     def getDice(self):
@@ -77,3 +83,8 @@ class Player:
         for i in range(len(self.__DICE)):
             print(f" Dice {i+1} rolled a {self.__DICE[i].getDieNumber()}")
 
+
+if __name__ == "__main__":
+    TEST_PLAYER = Player("TESTER")
+    print(TEST_PLAYER.getName())
+    print(TEST_PLAYER.getDice())
