@@ -21,6 +21,11 @@ class Player:
 
     # --- Modifier Methods
     def addScore(self, POINTS):
+        """
+        update score of player
+        :param POINTS: int
+        :return: None
+        """
         self.__SCORE += POINTS
 
     def rollDice(self):
@@ -56,10 +61,10 @@ class Player:
             self.__ALL_FOUND = True
 
     # --- Accessor Methods
-    def __str__(self):  # for printing
+    def __str__(self):
         return f"{self.__NAME}"
 
-    def __repr__(self):  # for printing dice
+    def __repr__(self):
         return f"{self.__str__()}"
 
     def getName(self):
@@ -82,9 +87,3 @@ class Player:
 
     def getAllFound(self):
         return self.__ALL_FOUND
-
-
-if __name__ == "__main__":
-    TEST_PLAYER = Player("TESTER")
-    print(TEST_PLAYER.getName())
-    print(TEST_PLAYER.getDice())

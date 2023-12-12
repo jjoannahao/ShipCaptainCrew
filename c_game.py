@@ -23,7 +23,7 @@ def holdGold(POINTS_SCORED):
 
 def pause():
     """
-    let user press any key when ready to continue to next part of program
+    let user press any key when ready to continue to next player
     :return: str
     """
     USER_INPUT = input("> Press any key to continue to the next player: ")
