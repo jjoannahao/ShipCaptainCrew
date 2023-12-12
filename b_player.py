@@ -17,6 +17,7 @@ class Player:
         self.__CAPTAIN_FOUND = False
         self.__SHIP_FOUND = False
         self.__CREW_FOUND = False
+        self.__ALL_FOUND = False
 
     # --- Modifier Methods
     def addScore(self, POINTS):
@@ -30,32 +31,36 @@ class Player:
         for die in self.__DICE:
             die.rolLDie()
 
-    def updateFound(self, DIE):
+    def updateCaptainFound(self, DIE):
         """
-        update whether player has found captain/ship/crew
+        update whether captain found
         :param DIE: list of Dice()
-        :return: None
+        :return:
         """
-        # update each separately since captain, ship, and crew don't have to be found in the same roll
-        # debug case before first case? all arleady updated?
         if not self.__CAPTAIN_FOUND and 6 in DIE:
             self.__CAPTAIN_FOUND = True
-            print("Captain is found!")
+            print("> Captain is found!")
+
+    def updateShipFound(self, DIE):
         if self.__CAPTAIN_FOUND and not self.__SHIP_FOUND and 5 in DIE:
-            # captain is already found
             self.__SHIP_FOUND = True
-            print("Ship is found!")
+            print("> Ship is found!")
+
+    def updateCrewFound(self, DIE):
         if self.__CAPTAIN_FOUND and self.__SHIP_FOUND and not self.__CREW_FOUND and 4 in DIE:
-            # captain & ship already found
             self.__CREW_FOUND = True
-            print("Crew is found!")
+            print("> Crew is found!")
+
+    def updateAllFound(self):
+        if self.__CAPTAIN_FOUND and self.__SHIP_FOUND and self.__CREW_FOUND:
+            self.__ALL_FOUND = True
 
     # --- Accessor Methods
     def __str__(self):  # for printing
         return f"{self.__NAME}"
 
     def __repr__(self):  # for printing dice
-        return f"<-- {self.__DICE} -->"
+        return f"{self.__str__()}"
 
     def getName(self):
         return self.__NAME
@@ -75,13 +80,8 @@ class Player:
     def getCrewFound(self):
         return self.__CREW_FOUND
 
-    def displayDice(self):
-        """
-        prints the dice values
-        :return: None
-        """
-        for i in range(len(self.__DICE)):
-            print(f" Dice {i+1} rolled a {self.__DICE[i].getDieNumber()}")
+    def getAllFound(self):
+        return self.__ALL_FOUND
 
 
 if __name__ == "__main__":

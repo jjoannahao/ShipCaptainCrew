@@ -1,6 +1,7 @@
 # CSE3120-Project
 
+## How to Use
+Run the ```main.py``` file!
+
 ## Extra Feature
-Ideas:
-1. leaderboard --> database
-2. power-ups --> buy extra dice roll
+Leaderboard of winning scores (SQLite3 Database)

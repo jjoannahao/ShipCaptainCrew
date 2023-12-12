@@ -19,6 +19,12 @@ class Dice:
         self.__DIE_NUMBER = 0
 
     # --- Modifier Methods
+    def __str__(self):
+        return f"{self.__DIE_NUMBER}"
+
+    def __repr__(self):
+        return f"{self.__str__()}"
+
     def rolLDie(self):
         """
         updating DIE_NUMBER with a new number
