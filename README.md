@@ -29,3 +29,8 @@ Run the ```main.py``` file!
 
 ## Extra Feature
 Leaderboard of winning scores (SQLite3 Database)
+
+## Planning
+![Project Flowchart](CSE3120-Project_Flowchart.drawio.png)
+
+![Project UML Tables](CSE3120-Project_UMLs.drawio.png)
